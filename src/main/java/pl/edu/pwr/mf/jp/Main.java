@@ -2,30 +2,39 @@ package pl.edu.pwr.mf.jp;
 
 import pl.edu.pwr.mf.jp.data.Database;
 
+import java.time.LocalDate;
+
 public class Main {
     public static void main(String[] args) throws Exception {
         Database.init();
         KlientDao dao = new KlientDao();
         SprzetDao daoS = new SprzetDao();
+        RezerwacjaDao daoR = new RezerwacjaDao();
 
-        Klient k = new Klient("Add Wee");
-        Sprzet s = new Sprzet("Test", 2.0);
+        Klient k = new Klient("TEST");
         dao.save(k);
+
+        Sprzet s = new Sprzet("Sprzet testowyyy", 40.0);
         daoS.save(s);
-        System.out.println(k);
-        System.out.println(s);
 
-        s.setCena(3.5);
-        daoS.update(s);
-        System.out.println("po update: " + dao.get(k.getId()));
-        System.out.println("po update: " + daoS.get(s.getId()));
+        Rezerwacja r = new Rezerwacja(s.getId(), k.getId(), LocalDate.of(2026, 11, 10), LocalDate.of(2026, 11, 12), Status.ZALOZONA, false);
+        daoR.save(r);
+        System.out.println("zapisane: " + r);
 
-        System.out.println("wszyscy: " + dao.getAll());
-        System.out.println("wszyscy: " + daoS.getAll());
+        r.setStatus(Status.REALIZOWANA);
+        r.setPlatnosc(true);
+        daoR.update(r);
+        System.out.println("po update: " + daoR.get(r.getId()));
 
-        dao.delete(k.getId());
+        try {
+            dao.delete(k.getId());
+        } catch (DaoException e) {
+            System.out.println("blokada: " + e.getMessage());
+        }
+
+        daoR.delete(r.getId());
         daoS.delete(s.getId());
-        System.out.println("po delete: " + dao.getAll());
-        System.out.println("po delete: " + daoS.getAll());
+        dao.delete(k.getId());
+        System.out.println("po usuwaniu: " + daoR.getAll());
     }
 }
