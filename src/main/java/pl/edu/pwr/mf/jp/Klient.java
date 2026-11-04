@@ -4,11 +4,11 @@ public class Klient {
     private int id;
     private String nazwa;
 
-    Klient(String nazwa) {
+    public Klient(String nazwa) {
         this.nazwa = nazwa;
     }
 
-    Klient(int id, String nazwa) {
+    public Klient(int id, String nazwa) {
         this.id = id;
         this.nazwa = nazwa;
     }
