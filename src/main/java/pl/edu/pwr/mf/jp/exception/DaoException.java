@@ -1,4 +1,4 @@
-package pl.edu.pwr.mf.jp;
+package pl.edu.pwr.mf.jp.exception;
 
 public class DaoException extends Exception{
 

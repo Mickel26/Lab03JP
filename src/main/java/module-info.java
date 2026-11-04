@@ -6,4 +6,7 @@ module Lab03JP {
 
     exports pl.edu.pwr.mf.jp;
     exports pl.edu.pwr.mf.jp.data;
+    exports pl.edu.pwr.mf.jp.model;
+    exports pl.edu.pwr.mf.jp.dao;
+    exports pl.edu.pwr.mf.jp.exception;
 }

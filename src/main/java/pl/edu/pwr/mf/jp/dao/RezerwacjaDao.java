@@ -1,15 +1,18 @@
-package pl.edu.pwr.mf.jp;
+package pl.edu.pwr.mf.jp.dao;
 
+import pl.edu.pwr.mf.jp.Dao;
+import pl.edu.pwr.mf.jp.exception.DaoException;
 import pl.edu.pwr.mf.jp.data.Database;
+import pl.edu.pwr.mf.jp.model.Rezerwacja;
+import pl.edu.pwr.mf.jp.model.Status;
 
-import javax.xml.crypto.Data;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class RezerwacjaDao implements Dao<Rezerwacja>{
+public class RezerwacjaDao implements Dao<Rezerwacja> {
 
     private Rezerwacja map(ResultSet rs) throws SQLException {
         return new Rezerwacja(

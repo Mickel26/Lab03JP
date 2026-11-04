@@ -1,5 +1,7 @@
 package pl.edu.pwr.mf.jp;
 
+import pl.edu.pwr.mf.jp.exception.DaoException;
+
 import java.util.List;
 import java.util.Optional;
 

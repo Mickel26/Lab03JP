@@ -1,13 +1,16 @@
-package pl.edu.pwr.mf.jp;
+package pl.edu.pwr.mf.jp.dao;
 
+import pl.edu.pwr.mf.jp.Dao;
+import pl.edu.pwr.mf.jp.exception.DaoException;
 import pl.edu.pwr.mf.jp.data.Database;
+import pl.edu.pwr.mf.jp.model.Klient;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class KlientDao implements Dao<Klient>{
+public class KlientDao implements Dao<Klient> {
     @Override
     public Optional<Klient> get(int id) throws DaoException {
         String sql = "SELECT id, nazwa FROM klient WHERE id = ?";

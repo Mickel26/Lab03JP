@@ -1,13 +1,16 @@
-package pl.edu.pwr.mf.jp;
+package pl.edu.pwr.mf.jp.dao;
 
+import pl.edu.pwr.mf.jp.Dao;
+import pl.edu.pwr.mf.jp.exception.DaoException;
 import pl.edu.pwr.mf.jp.data.Database;
+import pl.edu.pwr.mf.jp.model.Sprzet;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class SprzetDao implements Dao<Sprzet>{
+public class SprzetDao implements Dao<Sprzet> {
     @Override
     public Optional<Sprzet> get(int id) throws DaoException {
         String sql = "SELECT id, nazwa, cena FROM sprzet WHERE id = ?";
